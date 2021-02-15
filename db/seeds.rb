@@ -14,7 +14,7 @@ User.destroy_all
 
 10.times do
   User.create(
-    email: Faker::Internet.email(domain: 'yopmail.com'),
+    email: "ducon@yopmail.com", # Faker::Internet.email(domain: 'yopmail.com'),
     encrypted_password: "1234", 
     description: Faker::Movies::HarryPotter.quote,
     first_name: Faker::Name.first_name,

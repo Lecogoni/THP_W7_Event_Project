@@ -19,19 +19,18 @@ class ParticipationsController < ApplicationController
   def edit
   end
 
-  # POST /participations or /participations.json
   def create
-    @participation = Participation.new(participation_params)
+    puts "----------"
+    puts params
+    puts "----------"
+    @participation = Participation.new(user_id: params[:user_id], event_id: params[:event_id])
 
-    respond_to do |format|
-      if @participation.save
-        format.html { redirect_to @participation, notice: "Participation was successfully created." }
-        format.json { render :show, status: :created, location: @participation }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @participation.errors, status: :unprocessable_entity }
-      end
+    if @participation.save
+      redirect_to users_path, success: "Participation ok"
+    else
+      render :new
     end
+
   end
 
   # PATCH/PUT /participations/1 or /participations/1.json

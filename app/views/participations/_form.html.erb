@@ -11,12 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :stripe_customer_id %>
-    <%= form.text_field :stripe_customer_id %>
-  </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= form_with(url: participations_path, method: "POST") do %>
+    <%= label_tag(:user_id, "User Id :") %>
+    <%= text_field_tag(:user_id) %><br>
+
+    <%= form.select :event_id,Event.all.pluck(:title,:id),{prompt:'choose your event :'},{class: "form-control"}%>
+    <%= submit_tag("Valide participation") %>
+  <% end %>
+
 <% end %>
