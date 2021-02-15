@@ -1,5 +1,11 @@
-<h1>New Participation</h1>
 
-<%= render 'form', participation: @participation %>
+<div class="container">
 
-<%= link_to 'Back', participations_path %>
+  <h1>New Participation</h1>
+
+  <%= render 'form', participation: @participation %>
+  <br>
+
+  <button type="button" class="btn btn-info"><%= link_to 'Back', participations_path %></button>
+  
+</div>

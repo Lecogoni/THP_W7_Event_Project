@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  has_many :participations, :dependent => :destroy
+  has_many :participations, dependent: :destroy
 
   validates :start_date, :duration, :title, :description, :price, :location, presence: true 
 
