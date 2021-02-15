@@ -20,9 +20,6 @@ class ParticipationsController < ApplicationController
   end
 
   def create
-    puts "----------"
-    puts params
-    puts "----------"
     @participation = Participation.new(user_id: params[:user_id], event_id: params[:event_id])
 
     if @participation.save
