@@ -21,7 +21,8 @@ User.destroy_all
     last_name: Faker::Name.last_name
   )
 end
-print "10 User"
+puts "10 User"
+
 location = ["Paris", "Bordeaux", "Marseille", "NY", "Vezoul", "Bagneux"]
 duration = [5, 10, 20, 25, 30, 45, 55]
 
@@ -35,12 +36,12 @@ Event.create(
   location: location.sample
 )
 end
-print " 10 Event"
+puts " 10 Event"
 
 10.times do
 Participation.create(
-  user_id: User.all.sample.id
+  user_id: User.all.sample.id,
   event_id: Event.all.sample.id
 )
 end
-print " 10 Participation"
+puts " 10 Participation"

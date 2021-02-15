@@ -3,9 +3,9 @@ class Event < ApplicationRecord
 
   validates :start_date, :duration, :title, :description, :price, :location, presence: true 
 
-  validate :start_date_over_now
   validates :title, length: { in: 5..140 }  
-  validate :five_modulo, acceptance: { message: 'Duration must be positive and divisible by 5' }
+  validate :start_date_over_now
+  validate :five_modulo
   validates :description, length: { in: 20..1000 }
   validates :price, inclusion: { in: 1..1000 }
 
