@@ -1,17 +1,15 @@
-<%= form_with(model: user) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-        <% user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+
+  <%= form_with(url: users_path, method: "POST") do %>
+    <%= label_tag(:first_name, "First name :") %>
+    <%= text_field_tag(:first_name) %>
+    <%= label_tag(:last_name, "Last name:") %>
+    <%= text_field_tag(:last_name) %>
+    <%= label_tag(:email, "email :") %>
+    <%= text_field_tag(:email) %>
+    <%= label_tag(:description, "Description") %>
+    <%= text_field_tag(:description) %>
+    <%= submit_tag("Create user") %>
   <% end %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+
