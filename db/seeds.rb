@@ -5,3 +5,42 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+Participation.destroy_all
+Event.destroy_all
+User.destroy_all
+
+10.times do
+  User.create(
+    email: Faker::Internet.email(domain: 'yopmail.com'),
+    encrypted_password: "1234", 
+    description: Faker::Movies::HarryPotter.quote,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name
+  )
+end
+print "10 User"
+location = ["Paris", "Bordeaux", "Marseille", "NY", "Vezoul", "Bagneux"]
+duration = [5, 10, 20, 25, 30, 45, 55]
+
+10.times do
+Event.create(
+  start_date: Faker::Date.between(from: Time.now, to: 1.month.from_now),
+  duration: duration.sample,
+  title: Faker::Game.title,
+  description: Faker::Lorem.words(number: 21),
+  price: Faker::Number.between(from: 1, to: 1000),
+  location: location.sample
+)
+end
+print " 10 Event"
+
+10.times do
+Participation.create(
+  user_id: User.all.sample.id
+  event_id: Event.all.sample.id
+)
+end
+print " 10 Participation"
