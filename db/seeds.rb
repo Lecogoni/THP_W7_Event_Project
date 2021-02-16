@@ -12,10 +12,12 @@ Participation.destroy_all
 Event.destroy_all
 User.destroy_all
 
-10.times do
+
+
+9.times do
   User.create(
-    email: "ducon@yopmail.com", # Faker::Internet.email(domain: 'yopmail.com'),
-    encrypted_password: "1234", 
+    email: Faker::Internet.email(domain: 'yopmail.com'),
+    encrypted_password: "ABC1234", 
     description: Faker::Movies::HarryPotter.quote,
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name
